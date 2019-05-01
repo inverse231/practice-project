@@ -88,8 +88,8 @@
     <?php
     $myfile = fopen("newfile.txt", "w") or die ("Unable to open file");
     fwrite($myfile, $name.PHP_EOL);
-    //fwrite($myfile, );
-    fwrite($myfile, $email);
+    fwrite($myfile, $surname.PHP_EOL);
+    fwrite($myfile, $email.PHP_EOL);
     fclose($myfile);
 
     ?>    
