@@ -80,10 +80,10 @@
         <span class="error">* <?php echo $surnameErr;?></span>
         <br><br>
 
-        Gender:
-        <input type="radio" name="gender" value="female">Female
-        <input type="radio" name="gender" value="male">Male
-        <br><br>
+        Gender:<br>
+        <input type="radio" name="gender" value="female">Female<br>
+        <input type="radio" name="gender" value="male">Male<br>
+        <br>
 
         Birth date:
         <input type="text" name="birthdate">
@@ -94,20 +94,30 @@
         <span class="error">*<?php echo $birthplaceErr;?></span>
         <br><br>
 
-        Marriage status:
-        <input type="radio" name="marriage" value="married">Married
-        <input type="radio" name="marriage" value="single">Single
-        <input type="radio" name="marriage" value="divorced">Divorced
-        <input type="radio" name="marriage" value="widowed">Widowed
-        <br><br>
+        Marriage status:<br>
+        <input type="radio" name="marriage" value="married">Married <br>
+        <input type="radio" name="marriage" value="single">Single<br>
+        <input type="radio" name="marriage" value="divorced">Divorced<br>
+        <input type="radio" name="marriage" value="widowed">Widowed<br>
+        <br>
 
         Nationality:
         <input type="text" name="nationality">
         <br><br>
 
-        Education:
-        <input type="radio" name="education" value="">
-        <br><br>
+        Education:<br>
+        <input type="radio" name="education" value="elementary">Elementary school<br>
+        <input type="radio" name="education" value="mid">Mid school<br>
+        <input type="radio" name="education" value="bac">Bachelor degree<br>
+        <input type="radio" name="education" value="spec">Specialist<br>
+        <input type="radio" name="education" value="mag">Master degree<br>
+        
+        <br>
+
+		Do you have doctor degree?<br>
+		<input type="radio" name="doctorDeg" value="yes">Yes<br>
+		<input type="radio" name="doctorDeg" value="no">No<br>
+		<br>
 
         E-mail: <input type ="text" name="email">
         <span class="error">* <?php echo $emailErr; ?> </span>
