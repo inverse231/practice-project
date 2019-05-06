@@ -21,6 +21,7 @@
         echo "</pre>";
     }
 
+
     $hierarchy = $gender = $birthdate = $year = $month = $day = $birthplace = $marriage = $nationality = $degree = $doctorDeg = $language = $nativeLanguage = $surname = $name = $email = "";
     $nameErr = $emailErr = $surnameErr = $birthplaceErr =  "";
     $signed = $selected = "";
@@ -172,11 +173,11 @@
     <?php
     //Test variable output
     echo "<h2>Your input:</h2>";
-    print_b($name, "Test");
-    print_b($surname, "Test");
-    print_b($email, "Test");
-    //print_b($gender, "Test");
-    print_b($birthdate, "Test");
+    print_r($_POST);
+    file_put_contents("test_output.txt", "");
+    foreach($_POST as $key=>$value){
+        file_put_contents("test_output.txt",$key.'='.$value.PHP_EOL,FILE_APPEND);
+    }
     ?>
 
 </body>
