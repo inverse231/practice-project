@@ -127,17 +127,13 @@
         <input type="radio" name="education" value="bac">Bachelor degree<br>
         <input type="radio" name="education" value="spec">Specialist<br>
         <input type="radio" name="education" value="mag">Master degree<br>
+        <input type="radio" name="education" value="phd">PhD<br>
+        <input type="radio" name="education" value="ph.d">Ph.D<br>
         
         <br>
 
-		Do you have PhD or Ph.D?<br>
-		<input type="radio" name="doctorDeg" value="phd">PhD<br>
-		<input type="radio" name="doctorDeg" value="ph.d">Ph.D<br>
-        <input type="radio" name="doctorDeg" balue="no">No<br>
-		<br>
-
         Name the languages that you speak:<br>
-        <input type="text" name="language">
+        <textarea rows="4" cols="30" name="language"></зtextarea>
         <br><br>
 
         E-mail: <input type ="text" name="email">
@@ -152,32 +148,14 @@
     <?php
     //Writing to file
     $signed = "Signed: ".date("D/M/Y");
-    $birthdate = strtotime($birthdate);
-    //$myfile = fopen("newfile.txt", "w") or die ("Unable to open file");
-    if(isset($_POST['submit']))
-    {
-        $selected = $_POST['marriage'];
-    }
-
-    print_b($education,"TEST");
-
-    file_put_contents("newfile.txt", '');
-    file_put_contents("newfile.txt", $name.PHP_EOL, FILE_APPEND);       //change fwrite to fileputcontents
-    file_put_contents("newfile.txt", $surname.PHP_EOL, FILE_APPEND);
-    file_put_contents("newfile.txt", $email.PHP_EOL, FILE_APPEND);
-    file_put_contents("newfile.txt", $birthdate.PHP_EOL, FILE_APPEND);
-
-    ?>    
-
-
-    <?php
-    //Test variable output
-    echo "<h2>Your input:</h2>";
-    print_r($_POST);
     file_put_contents("test_output.txt", "");
     foreach($_POST as $key=>$value){
         file_put_contents("test_output.txt",$key.'='.$value.PHP_EOL,FILE_APPEND);
     }
+
+    //Test variable output
+    echo "<h2>Your input:</h2>";
+    print_r($_POST);
     ?>
 
 </body>
