@@ -133,7 +133,7 @@
         <br>
 
         Name the languages that you speak:<br>
-        <textarea rows="4" cols="30" name="language"></зtextarea>
+        <textarea rows="4" cols="30" name="language"></textarea>
         <br><br>
 
         E-mail: <input type ="text" name="email">
