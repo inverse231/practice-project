@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
     <script src="main.js"></script>
 </head>
 <body>
    
     <?php 
-     
+
     function print_b($variable, $text){
         echo "<p1>";
         print_r($variable);
@@ -22,7 +22,7 @@
     }
 
 
-    $hierarchy = $gender = $birthdate = $year = $month = $day = $birthplace = $marriage = $nationality = $degree = $doctorDeg = $language = $nativeLanguage = $surname = $name = $email = "";
+    $hierarchy = $work = $gender = $birthdate = $birthplace = $marriage = $nationality = $degree = $doctorDeg = $language = $nativeLanguage = $surname = $name = $email = "";
     $nameErr = $emailErr = $surnameErr = $birthplaceErr =  "";
     $signed = $selected = "";
 
@@ -81,68 +81,69 @@
 
 
     <!--HTML form code-->
+    <div id="qform">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <h1 align="center">Input your data here:</h1>
-        Family hierarchy:
-        <br><br>
-
-        Name: <input type="text" name="name">
-        <span class="error">* <?php echo $nameErr;?></span> 
-        <br><br>
-
-        Surname: <input type="text" name="surname">
-        <span class="error">* <?php echo $surnameErr;?></span>
-        <br><br>
-
-        Gender:<br>
-        <input type="radio" name="gender" value="female">Female<br>
-        <input type="radio" name="gender" value="male">Male<br>
-        <br>
-
-        Birth date: <br>
-        Day   <input type="text" name="day"><br>
-        Month <input type="text" name="month"><br>
-        Year  <input type="text" name="year"><br>
-        <br><br>
-
-        Birthplace:
-        <input type="text" name="birthplace">
-        <span class="error">*<?php echo $birthplaceErr;?></span>
-        <br><br>
-
-        Marriage status:<br>
-        <input type="radio" name="marriage" value="married">Married <br>
-        <input type="radio" name="marriage" value="single">Single<br>
-        <input type="radio" name="marriage" value="divorced">Divorced<br>
-        <input type="radio" name="marriage" value="widowed">Widowed<br>
-        <br>
-
-        Nationality:
-        <input type="text" name="nationality">
-        <br><br>
-
-        Education:<br>
-        <input type="radio" name="education" value="elementary">Elementary school<br>
-        <input type="radio" name="education" value="mid">Mid school<br>
-        <input type="radio" name="education" value="bac">Bachelor degree<br>
-        <input type="radio" name="education" value="spec">Specialist<br>
-        <input type="radio" name="education" value="mag">Master degree<br>
-        <input type="radio" name="education" value="phd">PhD<br>
-        <input type="radio" name="education" value="ph.d">Ph.D<br>
+    <h1 id="header">Input your data here:</h1>
         
-        <br>
+            <p>Name: <input type="text" name="name">
+            <span class="error">* <?php echo $nameErr;?></span></p>
+            
 
-        Name the languages that you speak:<br>
-        <textarea rows="4" cols="30" name="language"></textarea>
-        <br><br>
+            <p>Surname: <input type="text" name="surname">
+            <span class="error">* <?php echo $surnameErr;?></span></p>
+            <br><br>
 
-        E-mail: <input type ="text" name="email">
-        <span class="error">* <?php echo $emailErr; ?> </span>
-        <br>
+            Gender:<br>
+            <input type="radio" name="gender" value="female">Female<br>
+            <input type="radio" name="gender" value="male">Male<br>
+            <br>
 
-        <input type="submit">
+            Birth date:
+            <input type="text" name="birthdate">
+            <br><br>
+
+            Birthplace:
+            <input type="text" name="birthplace">
+            <span class="error">*<?php echo $birthplaceErr;?></span>
+            <br><br>
+
+            Marriage status:<br>
+            <input type="radio" name="marriage" value="married">Married <br>
+            <input type="radio" name="marriage" value="single">Single<br>
+            <input type="radio" name="marriage" value="divorced">Divorced<br>
+            <input type="radio" name="marriage" value="widowed">Widowed<br>
+            <br>
+
+            Nationality:
+            <input type="text" name="nationality">
+            <br><br>
+
+            Education:<br>
+            <input type="radio" name="education" value="elementary">Elementary school<br>
+            <input type="radio" name="education" value="mid">Mid school<br>
+            <input type="radio" name="education" value="bac">Bachelor degree<br>
+            <input type="radio" name="education" value="spec">Specialist<br>
+            <input type="radio" name="education" value="mag">Master degree<br>
+            <input type="radio" name="education" value="phd">PhD<br>
+            <input type="radio" name="education" value="ph.d">Ph.D<br>
+            
+            <br>
+
+            Name the place where you work:
+            <input type="text" name="work">
+            <br><br>
+
+            Name the languages that you speak:<br>
+            <textarea rows="4" cols="30" name="language"></textarea>
+            <br><br>
+
+            E-mail: <input type ="text" name="email">
+            <span class="error">* <?php echo $emailErr; ?> </span>
+            <br>
+
+            <input type="submit">  
     </form>
-    
+    </div>
     <br><br>
 
     <?php
