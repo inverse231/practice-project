@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -95,52 +95,51 @@
             <p>Gender:<br>
             <input type="radio" name="gender" value="female">Female<br>
             <input type="radio" name="gender" value="male">Male<br>
-            <br></p>
+            </p>
 
-            Birth date:
+            <p>Birth date:
             <input type="text" name="birthdate">
-            <br><br>
+            </p>
 
-            Birthplace:
+            <p>Birthplace:
             <input type="text" name="birthplace">
             <span class="error">*<?php echo $birthplaceErr;?></span>
-            <br><br>
+            </p>
 
-            Marriage status:<br>
+            <p>Marriage status:<br>
             <input type="radio" name="marriage" value="married">Married <br>
             <input type="radio" name="marriage" value="single">Single<br>
             <input type="radio" name="marriage" value="divorced">Divorced<br>
             <input type="radio" name="marriage" value="widowed">Widowed<br>
-            <br>
+            </p>
 
-            Nationality:
+            <p>Nationality:
             <input type="text" name="nationality">
-            <br><br>
+            </p>
 
-            Education:<br>
+            <p>Education:<br>
             <input type="radio" name="education" value="elementary">Elementary school<br>
             <input type="radio" name="education" value="mid">Mid school<br>
-            <input type="radio" name="education" value="bac">Bachelor degree<br>
-            <input type="radio" name="education" value="spec">Specialist<br>
-            <input type="radio" name="education" value="mag">Master degree<br>
+            <input type="radio" name="education" value="bachelor">Bachelor degree<br>
+            <input type="radio" name="education" value="specialist">Specialist<br>
+            <input type="radio" name="education" value="master">Master degree<br>
             <input type="radio" name="education" value="phd">PhD<br>
             <input type="radio" name="education" value="ph.d">Ph.D<br>
-            
-            <br>
+            </p>
 
-            Name the place where you work:
+            <p>Name the place where you work:
             <input type="text" name="work">
-            <br><br>
+            </p>
 
-            Name the languages that you speak:<br>
+            <p>Name the languages that you speak:<br>
             <textarea rows="4" cols="30" name="language"></textarea>
-            <br><br>
+            </p>
 
-            E-mail: <input type ="text" name="email">
+            <p>E-mail: <input type ="text" name="email">
             <span class="error">* <?php echo $emailErr; ?> </span>
-            <br>
+            </p>
 
-            <input type="submit">  
+            <p><input type="submit"></p>  
     </form>
     </div>
     <br><br>

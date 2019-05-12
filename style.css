@@ -1,11 +1,9 @@
-div.qform
+div
 {
-    margin: 0 auto;
-    height: 10em;
-    width: 2px;
-    padding-left: 30px;
-    text-align: center;
-    
+    border: 4px double black;
+    margin-left: 25%;
+    margin-right: 25%;
+
 }
 
 #header
@@ -16,5 +14,5 @@ div.qform
 
 p
 {
-    color: green;
+    font-size: 24px;
 }
