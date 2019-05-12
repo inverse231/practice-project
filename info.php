@@ -81,7 +81,7 @@
 
 
     <!--HTML form code-->
-    <div id="qform">
+    <div id="qform" align="center">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <h1 id="header">Input your data here:</h1>
         
@@ -91,12 +91,11 @@
 
             <p>Surname: <input type="text" name="surname">
             <span class="error">* <?php echo $surnameErr;?></span></p>
-            <br><br>
 
-            Gender:<br>
+            <p>Gender:<br>
             <input type="radio" name="gender" value="female">Female<br>
             <input type="radio" name="gender" value="male">Male<br>
-            <br>
+            <br></p>
 
             Birth date:
             <input type="text" name="birthdate">
