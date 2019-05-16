@@ -146,11 +146,12 @@
 
     <?php
     //Writing to file
-    $signed = "Signed: ".date("D/M/Y");
+    $signed = "Signed: ".date("d/M/Y");
     file_put_contents("test_output.txt", "");
     foreach($_POST as $key=>$value){
         file_put_contents("test_output.txt",$key.'='.$value.PHP_EOL,FILE_APPEND);
     }
+    file_put_contents("test_output.txt", $signed.PHP_EOL,FILE_APPEND);
 
     //Test variable output
     echo "<h2>Your input:</h2>";
