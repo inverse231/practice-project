@@ -23,7 +23,7 @@
 
 
     $hierarchy = $work = $gender = $birthdate = $birthplace = $marriage = $nationality = $degree = $doctorDeg = $language = $nativeLanguage = $surname = $name = $email = "";
-    $nameErr = $emailErr = $surnameErr = $birthplaceErr =  "";
+    $nameErr = $emailErr = $surnameErr = $birthplaceErr = $birthdateErr =  "";
     $signed = $selected = "";
 
     //Form input validation
@@ -38,7 +38,7 @@
         else
             {
                 $name = test_input($_POST["name"]);
-                if(!preg_match("/^[a-zA-Z]*$/", $name))
+                if(!preg_match("/^[А-Яа-яЁё]*$/", $name))
                 {
                     $nameErr = "Имя должно содержать буквы и пробелы";
                 }
@@ -49,7 +49,7 @@
         else
             {
                 $surname = test_input($_POST["surname"]);
-                if(!preg_match("/^[a-zA-Z]*$/", $surname))
+                if(!preg_match("/^[А-Яа-яЁё]*$/", $surname))
                 {
                     $surnameErr = "Фамилия должна содержать буквы и пробелы";
                 }
@@ -66,8 +66,23 @@
                 }
             }
 
-        if(empty($_POST["birthplace"]))
-            $birthplaceErr = "Birthplace required";
+        if(empty($_POST["birthdate"]))
+            $birthdateErr = "Обязательное поле";
+        else
+        {
+            //$birthdate = test_input($_POST["birthdate"]);
+            if(!preg_match("/(0[1-9]|[1-2][0-9]|3[0-1]).(0[1-9]|1[0-2]).[0-9]{4}/", $birthdate))
+            {
+                $birthdateErr = "Неправильный формат даты";
+            }
+        }
+
+
+        /*foreach($_POST as $value)
+        {
+            if(empty($_POST["value"]))
+                $error = "Обязательное поле";
+        }*/
     }
 
     function test_input($data)
@@ -99,6 +114,7 @@
 
             <p>Дата рождения:
             <input type="text" name="birthdate">
+            <span class="error">* <?php echo $birthdateErr;?></span>
             </p>
 
             <p>Место рождения:
