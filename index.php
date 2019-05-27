@@ -21,6 +21,17 @@
         echo "</pre>";
     }
 
+    function gender_detect($variable)
+    {
+        $ch = curl_init();
+        $header = array('Accept: application/json', 'Content-type: application/json');
+
+        curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=elizabeth&key=DPkAQulLHrRaRPBdWc");
+
+        curl_setopt($ch, CURL_CUSTOMREQUEST, "GET");
+
+    }
+
 
     $hierarchy = $work = $gender = $birthdate = $birthplace = $marriage = $nationality = $degree = $doctorDeg = $language = $nativeLanguage = $surname = $name = $email = "";
     $nameErr = $emailErr = $surnameErr = $birthplaceErr = $birthdateErr =  "";
@@ -76,6 +87,13 @@
                 $birthdateErr = "Неправильный формат даты";
             }
         }
+
+        if(empty($_POST["birthplace"]))
+        {
+            $birthplaceErr = "Обязательное поле";
+        }
+
+        
 
 
         /*foreach($_POST as $value)
