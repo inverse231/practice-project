@@ -27,8 +27,12 @@
         $header = array('Accept: application/json', 'Content-type: application/json');
 
         curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=elizabeth&key=DPkAQulLHrRaRPBdWc");
-
+        curl_setopt($ch, CURLOT_HTTPHEADER, $header);
         curl_setopt($ch, CURL_CUSTOMREQUEST, "GET");
+        curl_setopt($ch, CURL_RETURNTRANSFET, 1);
+
+
+        $result = curl_exec($ch);
 
     }
 
@@ -40,10 +44,6 @@
     //Form input validation
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        $education = $_POST['education'];
-        $doctorDeg = $_POST['doctorDeg'];
-
-
         if(empty($_POST["name"]))
             $nameErr = "Обязательное поле";
         else
