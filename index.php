@@ -26,11 +26,9 @@
         $ch = curl_init();
         $header = array('Accept: application/json', 'Content-type: application/json');
 
-        curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=elizabeth&key=DPkAQulLHrRaRPBdWc");
-        curl_setopt($ch, CURLOT_HTTPHEADER, $header);
-        curl_setopt($ch, CURL_CUSTOMREQUEST, "GET");
-        curl_setopt($ch, CURL_RETURNTRANSFET, 1);
-
+        //curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=".$variable."&country=RU&key=DPkAQulLHrRaRPBdWc");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURL_HTTPGET, 1);
 
         $result = curl_exec($ch);
 
@@ -92,15 +90,6 @@
         {
             $birthplaceErr = "Обязательное поле";
         }
-
-        
-
-
-        /*foreach($_POST as $value)
-        {
-            if(empty($_POST["value"]))
-                $error = "Обязательное поле";
-        }*/
     }
 
     function test_input($data)
@@ -190,6 +179,7 @@
     //Test variable output
     echo "<h2>Your input:</h2>";
     print_r($_POST);
+    //gender_detect($name);
     ?>
 
 </body>
