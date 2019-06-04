@@ -25,8 +25,8 @@
     {
         $ch = curl_init();
         $header = array('Accept: application/json', 'Content-type: application/json');
-
-        curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=".$variable."&country=RU&key=DPkAQulLHrRaRPBdWc");
+/*
+        //curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=".$variable."&country=RU&key=DPkAQulLHrRaRPBdWc");
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         curl_setopt($ch, CURL_HTTPGET, 1);
 
@@ -36,7 +36,7 @@
         $json = json_decode($result, true);
         echo '<pre>'.print_r($json, true).'</pre>';
         $genderFromName = "";
-
+*/
     }
 
 
