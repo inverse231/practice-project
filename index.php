@@ -25,7 +25,7 @@
     {
         $ch = curl_init();
         $header = array('Accept: application/json', 'Content-type: application/json');
-        //curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=".$variable."&country=RU&key=DPkAQulLHrRaRPBdWc");
+        curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=".$variable."&country=RU&key=DPkAQulLHrRaRPBdWc");
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         curl_setopt($ch, CURL_HTTPGET, 1);
 
@@ -40,7 +40,7 @@
     }
 
 
-    $hierarchy = $work = $gender = $birthdate = $birthplace = $marriage = $nationality = $degree = $doctorDeg = $language = $nativeLanguage = $surname = $name = $email = "";
+    $hierarchy = $work = $gender = $birthdate = $birthplace = $marriage = $nationality = $degree = $doctorDeg = $language = $nativeLanguage = $surname = $name = $email = $country = "";
     $nameErr = $emailErr = $surnameErr = $birthplaceErr = $birthdateErr =  "";
     $signed = $selected = "";
 
@@ -110,56 +110,40 @@
     <!--HTML form code-->
     <div id="qform" align="center">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <h1 id="header">Введите свои данные:</h1>
+    <h1 id="header">Input your data:</h1>
         
-            <p>Имя: <input type="text" name="name">
+            <p>First Name: <input type="text" name="name">
             <span class="error">* <?php echo $nameErr;?></span></p>
-            
 
-            <p>Фамилия: <input type="text" name="surname">
+            <p>Surname: <input type="text" name="surname">
             <span class="error">* <?php echo $surnameErr;?></span></p>
 
-            <p>Пол:<br>
-            <input type="radio" name="gender" value="female">Женский<br>
-            <input type="radio" name="gender" value="male">Мужской<br>
+            <p>Gender:<br>
+            <input type="radio" name="gender" value="female">Female<br>
+            <input type="radio" name="gender" value="male">Male<br>
             </p>
 
-            <p>Дата рождения:
+            <p>Birthdate:
             <input type="text" name="birthdate">
             <span class="error">* <?php echo $birthdateErr;?></span>
             </p>
 
-            <p>Место рождения:
-            <input type="text" name="birthplace">
-            <span class="error">*<?php echo $birthplaceErr;?></span>
+            <p>Where do yo live:
+            <input type="text" name="country">
             </p>
 
-            <p>Семейное положение:<br>
-            <input type="radio" name="marriage" value="married">Замужем/женат<br>
-            <input type="radio" name="marriage" value="single">Холост<br>
-            <input type="radio" name="marriage" value="divorced">Разведен(а)<br>
-            <input type="radio" name="marriage" value="widowed">Вдова/вдовец<br>
-            </p>
-
-            <p>Национальность:
-            <input type="text" name="nationality">
-            </p>
-
-            <p>Образование:<br>
-            <input type="radio" name="education" value="elementary">Начальная школа<br>
-            <input type="radio" name="education" value="mid">Среднее образование<br>
-            <input type="radio" name="education" value="bachelor">Неполное высшее (бакалавр)<br>
-            <input type="radio" name="education" value="specialist">Специалист<br>
-            <input type="radio" name="education" value="master">Магистр<br>
-            <input type="radio" name="education" value="phd">Кандидат в доктора наук<br>
-            <input type="radio" name="education" value="ph.d">Доктор наук<br>
+            <p>Marriage:<br>
+            <input type="radio" name="marriage" value="married">Married<br>
+            <input type="radio" name="marriage" value="single">Single<br>
+            <input type="radio" name="marriage" value="divorced">Divorced<br>
+            <input type="radio" name="marriage" value="widowed">Widowed<br>
             </p>
 
             <p>Место работы:
             <input type="text" name="work">
             </p>
 
-            <p>Назовите языки, на которых вы говорите:<br>
+            <p>Language:<br>
             <textarea rows="4" cols="30" name="language"></textarea>
             </p>
 
@@ -167,7 +151,7 @@
             <span class="error">* <?php echo $emailErr; ?> </span>
             </p>
 
-            <p><input type="submit" value="Отправить"></p>  
+            <p><input type="submit" value="Submit"></p>  
     </form>
     </div>
     <br><br>
