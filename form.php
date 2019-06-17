@@ -40,7 +40,7 @@
     }
 
 
-    $hierarchy = $work = $gender = $birthdate = $birthplace = $marriage = $nationality = $degree = $doctorDeg = $language = $nativeLanguage = $surname = $name = $email = $country = "";
+    $work = $gender = $birthdate = $language = $surname = $name = $email = $nickname = "";
     $nameErr = $emailErr = $surnameErr = $birthplaceErr = $birthdateErr =  "";
     $signed = $selected = "";
 
@@ -108,52 +108,45 @@
 
 
     <!--HTML form code-->
-    <div id="qform" align="center">
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <h1 id="header">Input your data:</h1>
+    <form class="regform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <h1 class="formhead">Input your data:</h1>
+
+        <p>Nickname: 
+        <input type="text" name="nickname">
+        </p>    
         
-            <p>First Name: <input type="text" name="name">
-            <span class="error">* <?php echo $nameErr;?></span></p>
+        <p>First Name:
+        <input type="text" name="name">
+        <span class="error">* <?php echo $nameErr;?></span></p>
 
-            <p>Surname: <input type="text" name="surname">
-            <span class="error">* <?php echo $surnameErr;?></span></p>
+        <p>Surname: 
+        <input type="text" name="surname">
+        <span class="error">* <?php echo $surnameErr;?></span></p>
 
-            <p>Gender:<br>
-            <input type="radio" name="gender" value="female">Female<br>
-            <input type="radio" name="gender" value="male">Male<br>
-            </p>
+        <p>Gender:<br>
+        <input type="radio" name="gender" value="female">Female<br>
+        <input type="radio" name="gender" value="male">Male<br>
+        </p>
 
-            <p>Birthdate:
-            <input type="text" name="birthdate">
-            <span class="error">* <?php echo $birthdateErr;?></span>
-            </p>
+        <p>Birthdate:
+        <input type="text" name="birthdate">
+        <span class="error">* <?php echo $birthdateErr;?></span>
+        </p>
 
-            <p>Where do yo live:
-            <input type="text" name="country">
-            </p>
+        <p>Where do yo live:
+        <input type="text" name="country">
+        </p>
 
-            <p>Marriage:<br>
-            <input type="radio" name="marriage" value="married">Married<br>
-            <input type="radio" name="marriage" value="single">Single<br>
-            <input type="radio" name="marriage" value="divorced">Divorced<br>
-            <input type="radio" name="marriage" value="widowed">Widowed<br>
-            </p>
+        <p>Language:
+        <input type="text" name="language">
+        </p>
 
-            <p>Место работы:
-            <input type="text" name="work">
-            </p>
+        <p>E-mail: <input type ="text" name="email">
+        <span class="error">* <?php echo $emailErr; ?> </span>
+        </p>
 
-            <p>Language:<br>
-            <textarea rows="4" cols="30" name="language"></textarea>
-            </p>
-
-            <p>E-mail: <input type ="text" name="email">
-            <span class="error">* <?php echo $emailErr; ?> </span>
-            </p>
-
-            <p><input type="submit" value="Submit"></p>  
+        <p><input type="submit" value="Submit"></p>  
     </form>
-    </div>
     <br><br>
 
     <?php

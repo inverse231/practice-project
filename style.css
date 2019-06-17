@@ -1,18 +1,15 @@
-div
-{
-    border: 4px double black;
-    margin-left: 25%;
-    margin-right: 25%;
-
-}
-
-#header
-{
+.formhead {
     text-align: center;
     color:red;
 }
 
-p
-{
+p {
     font-size: 18px;
+}
+
+.regform {
+    text-align: center;
+    border: 4px double black;
+    margin-left: 25%;
+    margin-right: 25%;
 }
