@@ -18,11 +18,11 @@
 </header>
 
 <?php
-$servername = "127.0.0.1:8080";
-$username = "username";
+$servername = "localhost";
+$username = "root";
 $password = "password";
 
-/*try {
+try {
     $conn = new PDO("mysql:host=$servername", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE DATABASE loginDB";
@@ -36,8 +36,6 @@ catch(PDOException $e)
 }
 
 $conn = null;
-*/
-
 ?>
 
 

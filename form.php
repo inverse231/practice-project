@@ -158,6 +158,23 @@
     }
     file_put_contents("test_output.txt", $signed.PHP_EOL,FILE_APPEND);
 
+    $username = "root";
+    $password = "/Iamalive2254";
+    $servername = "localhost";
+
+    try {
+        $conn = new PDO("mysql:host=$servername", root, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SHOW DATABASES;";
+        $conn->exec($sql);
+        echo "1";
+    }
+    
+    catch(PDOException $e)
+    {
+        echo $sql."<br>".$e->getMessage();
+    }
+
     //Test variable output
     echo "<h2>Your input:</h2>";
     print_r($_POST);
