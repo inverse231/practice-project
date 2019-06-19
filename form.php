@@ -25,11 +25,11 @@
     {
         $ch = curl_init();
         $header = array('Accept: application/json', 'Content-type: application/json');
-        curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=".$variable."&country=RU&key=DPkAQulLHrRaRPBdWc");
+        //curl_setopt($ch, CURLOPT_URL, "https://gender-api.com/get?name=".$variable."&country=RU&key=DPkAQulLHrRaRPBdWc");
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         curl_setopt($ch, CURL_HTTPGET, 1);
 
-        $result = curl_exec($ch);
+       //$result = curl_exec($ch);
         //file_put_contents("name.json", $result);
         //echo $result;
 
@@ -40,12 +40,12 @@
     }
 
 
-    $work = $gender = $birthdate = $language = $surname = $name = $email = $nickname = "";
+    $id = $work = $gender = $birthdate = $language = $surname = $name = $email = $country = $nickname = "";
     $nameErr = $emailErr = $surnameErr = $birthplaceErr = $birthdateErr =  "";
     $signed = $selected = "";
 
     //Form input validation
-    if($_SERVER["REQUEST_METHOD"] == "POST")
+    /*if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         if(empty($_POST["name"]))
             $nameErr = "Обязательное поле";
@@ -95,7 +95,7 @@
         {
             $birthplaceErr = "Обязательное поле";
         }
-    }
+    }*/
 
     function test_input($data)
     {
@@ -113,6 +113,10 @@
 
         <p>Nickname: 
         <input type="text" name="nickname">
+        </p>
+
+        <p>Password:
+        <input type="password" name="pass">
         </p>    
         
         <p>First Name:
@@ -145,39 +149,57 @@
         <span class="error">* <?php echo $emailErr; ?> </span>
         </p>
 
-        <p><input type="submit" value="Submit"></p>  
+        <p><input type="submit" name="submit" value="Submit">
+        <?php
+        $nickname = $_POST['nickname'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $gender = $_POST['gender'];
+        $birthdate = $_POST['birthdate'];
+        $country = $_POST['country'];
+        $language = $_POST['language'];
+        $email = $_POST['email'];
+        $id = rand(0, 25);        
+        ?>
+        </p>  
     </form>
     <br><br>
 
     <?php
     //Writing to file
-    $signed = "Signed: ".date("d/M/Y");
+    /*$signed = "Signed: ".date("d/M/Y");
     file_put_contents("test_output.txt", "");
     foreach($_POST as $key=>$value){
         file_put_contents("test_output.txt",$key.'='.$value.PHP_EOL,FILE_APPEND);
     }
-    file_put_contents("test_output.txt", $signed.PHP_EOL,FILE_APPEND);
+    file_put_contents("test_output.txt", $signed.PHP_EOL,FILE_APPEND);*/
 
     $username = "root";
-    $password = "/Iamalive2254";
+    $password = "20849022";
     $servername = "localhost";
+    $dbname = "registration";
 
-    try {
-        $conn = new PDO("mysql:host=$servername", root, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SHOW DATABASES;";
-        $conn->exec($sql);
-        echo "1";
-    }
-    
-    catch(PDOException $e)
-    {
-        echo $sql."<br>".$e->getMessage();
+    if(isset($_POST['submit'])){
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "INSERT INTO SiteUsers (id, Nickname, Name, Surname, Gender, Birthdate, Country, Language, Email)
+            VALUES ('$id', '$nickname', '$name', '$surname', '$gender', '$birthdate', '$country', '$language', '$email');";
+            $conn->exec($sql);
+            echo "$id";
+        }
+        
+        catch(PDOException $e)
+        {
+            echo $sql."<br>".$e->getMessage();
+        }
+
     }
 
     //Test variable output
     echo "<h2>Your input:</h2>";
     print_r($_POST);
+    var_dump($name);
     //gender_detect($name);
     ?>
 

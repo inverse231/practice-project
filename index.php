@@ -20,14 +20,14 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "password";
+$password = "20849022";
 
 try {
     $conn = new PDO("mysql:host=$servername", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "CREATE DATABASE loginDB";
-    $conn->exec($sql);
-    echo "DB created";
+    //$sql = "CREATE DATABASE loginDB";
+    //$conn->exec($sql);
+    echo "2";
 }
 
 catch(PDOException $e)
