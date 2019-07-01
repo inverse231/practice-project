@@ -40,7 +40,7 @@
     }
 
 
-    $id = $work = $gender = $birthdate = $language = $surname = $name = $email = $country = $nickname = "";
+    $id = $work = $gender = $pass = $birthdate = $language = $surname = $name = $email = $country = $nickname = "";
     $nameErr = $emailErr = $surnameErr = $birthplaceErr = $birthdateErr =  "";
     $signed = $selected = "";
 
@@ -152,6 +152,7 @@
         <p><input type="submit" name="submit" value="Submit">
         <?php
         $nickname = $_POST['nickname'];
+        $pass = $_POST['pass'];
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $gender = $_POST['gender'];
@@ -183,8 +184,8 @@
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO SiteUsers (id, Nickname, Name, Surname, Gender, Birthdate, Country, Language, Email)
-            VALUES ('$id', '$nickname', '$name', '$surname', '$gender', '$birthdate', '$country', '$language', '$email');";
+            $sql = "INSERT INTO SiteUsers (id, Nickname, Name, Surname, Gender, Birthdate, Country, Language, Email, password)
+            VALUES ('$id', '$nickname', '$name', '$surname', '$gender', '$birthdate', '$country', '$language', '$email', '$pass');";
             $conn->exec($sql);
             echo "$id";
         }
